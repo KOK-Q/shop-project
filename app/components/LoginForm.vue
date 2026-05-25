@@ -1,0 +1,58 @@
+<script setup lang="ts">
+import { required, email } from "@vee-validate/rules";
+import { Field as VeeField, defineRule } from "vee-validate";
+
+defineRule("required", required);
+defineRule("email", email);
+
+const authStore = useAuthStore();
+
+function onSubmit(value: any) {
+  const success = authStore.login(value);
+  if (success) {
+    navigateTo("/products");
+  }
+}
+
+
+</script>
+
+<template>
+  <Form @submit="onSubmit">
+    <FieldGroup>
+      <VeeField v-slot="{ field, errors }" name="email" rules="required">
+        <Field :data-invalid="!!errors.length">
+          <Input
+            id="email"
+            class="bg-gray-100 h-13 rounded-full border-none"
+            v-bind="field"
+            placeholder="Enter your email"
+            autocomplete="off"
+            :aria-invalid="!!errors.length"
+          />
+          <FieldError v-if="errors.length" :errors="errors" />
+        </Field>
+      </VeeField>
+
+      <!-- submit buttons -->
+      <div class="flex flex-col gap-2 pb-6">
+        <NuxtLink to="/shop">
+          <Button
+            type="submit"
+            class="bg-blue-600 w-full flex justify-center h-12 text-lg"
+            >Next</Button
+          >
+        </NuxtLink>
+
+        <NuxtLink to="/">
+          <Button
+            type="submit"
+            class="w-full flex justify-center bg-white text-black"
+          >
+            Cancel
+          </Button>
+        </NuxtLink>
+      </div>
+    </FieldGroup>
+  </Form>
+</template>
