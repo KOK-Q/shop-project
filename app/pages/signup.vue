@@ -11,7 +11,7 @@ useHead({
 </script>
 
 <template>
-  <div class="relative flex flex-col min-h-screen px-6 pt-10">
+  <div class="relative flex flex-col min-h-screen px-6 py-10">
     <!-- Background bubbles -->
     <div>
       <img src="/images/bubble1.png" class="absolute top-0 right-0" alt="" />

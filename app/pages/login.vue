@@ -13,7 +13,7 @@ useHead({
 </script>
 
 <template>
-  <div class="relative flex min-h-screen flex-col overflow-hidden">
+  <div class="relative flex min-h-screen flex-col overflow-hidden pb-10">
     <div>
       <!-- TOP LEFT BLUE -->
       <svg
@@ -77,7 +77,7 @@ useHead({
     </div>
 
     <!-- CONTENT -->
-    <div class="relative z-10 flex flex-col gap-16 px-5 pt-65">
+    <div class="relative z-10 flex flex-col gap-10 px-5 pt-75">
       <!-- TITLE -->
       <div>
         <h1 class="text-[56px] font-bold">Login</h1>
@@ -85,9 +85,7 @@ useHead({
       </div>
 
       <!-- FORM -->
-      <div>
-        <LoginForm />
-      </div>
+      <LoginForm />
     </div>
   </div>
 </template>

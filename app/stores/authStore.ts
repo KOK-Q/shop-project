@@ -1,7 +1,6 @@
 interface User {
-  name: string;
   email: string;
-  address: string;
+  password: string;
 }
 
 export const useAuthStore = defineStore("user", {
@@ -15,7 +14,6 @@ export const useAuthStore = defineStore("user", {
       if (import.meta.client) {
         const user = localStorage.getItem("user");
         const token = localStorage.getItem("token");
-
         // const users = JSON.parse(localStorage.getItem("users") || "[]");
         if (user && token) {
           this.user = JSON.parse(user);
@@ -27,7 +25,7 @@ export const useAuthStore = defineStore("user", {
     login(user: User) {
       const users = JSON.parse(localStorage.getItem("users") || "[]");
       const existing = users.find(
-        (u: User) => u.email === user.email && u.name === user.name,
+        (u: User) => u.email === user.email && u.password === user.password,
       );
 
       if (!existing) {
@@ -53,13 +51,9 @@ export const useAuthStore = defineStore("user", {
     signup(user: User) {
       const users = JSON.parse(localStorage.getItem("users") || "[]");
 
-      const existing = users.find((u: User) => {
-        return (
-          u.email === user.email &&
-          u.name === user.name &&
-          u.address === user.address
-        );
-      });
+      const existing = users.find(
+        (u: User) => u.email === user.email && u.password === user.password,
+      );
 
       if (existing) {
         alert("User already exists");

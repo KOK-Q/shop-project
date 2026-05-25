@@ -8,19 +8,22 @@ defineRule("email", email);
 const authStore = useAuthStore();
 
 function onSubmit(value: any) {
-  authStore.signup(value);
-  navigateTo("/products");
+  const success = authStore.signup(value);
+  if (success) {
+    navigateTo("/shop");
+  }
 }
 </script>
 
 <template>
-  <Form @submit="onSubmit(value)">
+  <Form @submit="onSubmit">
     <FieldGroup class="grid gap-2">
       <!-- email -->
       <VeeField v-slot="{ field, errors }" name="email" rules="required">
         <Field :data-invalid="!!errors.length">
           <Input
             id="email"
+            type="email"
             class="bg-gray-100 h-13 rounded-full border-none"
             v-bind="field"
             placeholder="Email"
@@ -36,6 +39,7 @@ function onSubmit(value: any) {
         <Field :data-invalid="!!errors.length">
           <Input
             id="password"
+            type="password"
             class="bg-gray-100 h-13 rounded-full border-none"
             v-bind="field"
             placeholder="Password"
@@ -47,12 +51,9 @@ function onSubmit(value: any) {
       </VeeField>
 
       <div class="flex flex-col gap-2">
-        <NuxtLink to="/shop">
-          <Button type="submit" class="bg-blue-600 w-full h-12 text-lg"
-            >Done</Button
-          >
-        </NuxtLink>
-
+        <Button type="submit" class="bg-blue-600 w-full h-12 text-lg"
+          >Done</Button
+        >
         <NuxtLink to="/">
           <Button
             type="submit"

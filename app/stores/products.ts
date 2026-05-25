@@ -25,7 +25,7 @@ export const useProductStore = defineStore("product", {
         );
 
         this.products = data;
-      } catch (e) {
+      } catch {
         this.error = "Failed to fetch products";
       } finally {
         this.pending = false;
