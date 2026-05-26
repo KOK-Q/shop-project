@@ -4,27 +4,32 @@ import { Camera, ArrowRight } from "@lucide/vue";
 definePageMeta({
   middleware: "auth",
 });
+
+const modelValue = ref([])
 </script>
 
 <template>
   <div class="grid gap-6 p-4 pb-12">
     <!-- header and search bar -->
-    <div class="flex gap-6 items-baseline">
+    <div class="flex justify-between items-baseline">
       <h1 class="text-2xl font-bold">Shop</h1>
-      <div>
-        <InputGroup class="bg-gray-100 rounded-full border-none">
-          <InputGroupAddon align="inline-end">
-            <Camera class="size-5" color="blue" />
-          </InputGroupAddon>
-          <InputGroupInput placeholder="Search" />
-        </InputGroup>
-      </div>
+      <TagsInput v-model="modelValue" 
+      class="w-70 bg-gray-100 rounded-full border-none h-10">
+        <TagsInputItem v-for="item in modelValue" :key="item" :value="item"
+          class="bg-white rounded-full px-2 text-sm shadow-sm">
+          <TagsInputItemText />
+          <TagsInputItemDelete class="text-gray-400 hover:text-gray-600" />
+        </TagsInputItem>
+
+        <TagsInputInput class="bg-transparent text-sm placeholder:text-gray-400 px-1" placeholder="Search" />
+
+        <Camera class="size-5" color="blue" />
+      </TagsInput>
     </div>
 
     <!-- banner -->
-    <div>
-      <Carousel class="w-full">
-        <CarouselContent>
+      <Carousel>
+        <CarouselContent class="w-100">
           <CarouselItem>
             <div class="p-1">
               <img src="/images/BigSaleBanner.png" />
@@ -36,10 +41,10 @@ definePageMeta({
             </div>
           </CarouselItem>
         </CarouselContent>
-        <CarouselPrevious class="left-2" />
-        <CarouselNext class="right-2" />
+        <CarouselPrevious class="left-1" />
+        <CarouselNext class="right-1" />
       </Carousel>
-    </div>
+   
 
     <!-- category -->
     <div class="space-y-2">
@@ -47,9 +52,7 @@ definePageMeta({
         <h1 class="font-bold text-xl">Categories</h1>
         <div class="flex gap-2">
           <h3>see all</h3>
-          <div
-            class="w-6 h-6 flex items-center justify-center bg-blue-600 rounded-full hover:bg-gray-200 transition"
-          >
+          <div class="w-6 h-6 flex items-center justify-center bg-blue-600 rounded-full hover:bg-gray-200 transition">
             <ArrowRight class="text-white" />
           </div>
         </div>
