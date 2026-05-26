@@ -5,6 +5,10 @@ definePageMeta({
   middleware: "auth",
 });
 
+const sizes = ["S", "M", "L", "XL", "XXL", "XXXL"];
+const disabledSizes = ["XXL", "XXXL"];
+const selectedSize = ref("M");
+
 const cartStore = useCartStore();
 
 const route = useRoute();
@@ -22,7 +26,7 @@ const product = computed(() =>
 </script>
 
 <template>
-  <div v-if="product">
+  <div v-if="product" class="pb-8">
     <!-- img -->
     <div class="grid gap-2">
       <div class="h-80 bg-gray-200 p-6 flex justify-center items-center">
@@ -38,6 +42,26 @@ const product = computed(() =>
         <!-- size -->
         <div>
           <p class="font-bold">Size</p>
+          <div class="flex gap-2 mt-2">
+            <button
+              v-for="size in sizes"
+              :key="size"
+              :disabled="disabledSizes.includes(size)"
+              class="px-3 py-1 rounded-lg text-sm font-medium transition-all"
+              :class="{
+                'border-2 border-blue-600 bg-white text-blue-600':
+                  selectedSize === size,
+                'bg-gray-200 text-gray-800':
+                  selectedSize !== size && !disabledSizes.includes(size),
+
+                'bg-gray-100 text-gray-300 cursor-not-allowed':
+                  disabledSizes.includes(size),
+              }"
+              @click="selectedSize = size"
+            >
+              {{ size }}
+            </button>
+          </div>
         </div>
 
         <!-- quantity -->
