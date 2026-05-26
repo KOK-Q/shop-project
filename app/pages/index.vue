@@ -3,25 +3,27 @@ import { ArrowRight } from "@lucide/vue";
 </script>
 
 <template>
-  <div class="min-h-screen flex flex-col items-center justify-center px-6">
-    <!-- Icon -->
-    <div
-      class="w-32 h-32 rounded-full shadow-md flex items-center justify-center mb-6"
-    >
-      <img src="/images/bag.png" class="w-20 h-20" />
+  <div class="min-h-screen flex flex-col justify-center items-center px-6">
+    <div class="flex flex-col justify-center items-center">
+      <!-- Icon -->
+      <div
+        class="w-32 h-32 rounded-full shadow-md flex items-center justify-center mb-6"
+      >
+        <img src="/images/bag.png" class="w-20 h-20" />
+      </div>
+
+      <!-- Title -->
+      <h1 class="font-bold text-4xl overflow-hidden">Shoppe</h1>
+
+      <!-- Subtitle -->
+      <p class="text-center text-gray-500">
+        Beautiful eCommerce UI Kit<br />
+        for your online store
+      </p>
     </div>
 
-    <!-- Title -->
-    <h1 class="font-bold text-4xl overflow-hidden">Shoppe</h1>
-
-    <!-- Subtitle -->
-    <p class="text-center text-gray-500">
-      Beautiful eCommerce UI Kit<br />
-      for your online store
-    </p>
-
     <!-- CTA -->
-    <div class="w-full mt-10 space-y-4">
+    <div class="w-full mt-30 space-y-4">
       <NuxtLink to="/signup" class="block">
         <button
           class="w-full bg-blue-600 text-white py-3 rounded-xl font-medium shadow-md active:scale-95 transition"
