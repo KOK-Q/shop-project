@@ -13,7 +13,7 @@ useHead({
 </script>
 
 <template>
-  <div class="relative flex min-h-screen flex-col overflow-hidden pb-10">
+  <div class="relative flex min-h-screen flex-col justify-between overflow-hidden pb-6">
     <div>
       <!-- TOP LEFT BLUE -->
       <svg
@@ -77,7 +77,7 @@ useHead({
     </div>
 
     <!-- CONTENT -->
-    <div class="relative z-10 flex flex-col gap-10 px-5 pt-75">
+    <div class="relative z-10 flex flex-col gap-10 px-5">
       <!-- TITLE -->
       <div>
         <h1 class="text-[56px] font-bold">Login</h1>

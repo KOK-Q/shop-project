@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import { Eye, EyeClosed } from "@lucide/vue";
 import { required, email } from "@vee-validate/rules";
 import { Field as VeeField, defineRule } from "vee-validate";
 
 defineRule("required", required);
 defineRule("email", email);
 
+const checked = ref(false);
 const authStore = useAuthStore();
 
 function onSubmit(value: any) {
@@ -34,15 +36,36 @@ function onSubmit(value: any) {
         </Field>
       </VeeField>
 
-      <!-- Password -->
+      <!-- password -->
       <VeeField v-slot="{ field, errors }" name="password" rules="required">
         <Field :data-invalid="!!errors.length">
+          <InputGroup class="bg-gray-100 h-13 rounded-full border-none">
+            <InputGroupInput
+              id="password"
+              :type="checked ? 'text' : 'password'"
+              v-bind="field"
+              placeholder="Password"
+              autocomplete="off"
+              :aria-invalid="!!errors.length"
+            />
+            <InputGroupAddon align="inline-end" @click="checked = !checked">
+              <Eye v-if="checked" />
+              <EyeClosed v-else />
+            </InputGroupAddon>
+          </InputGroup>
+          <FieldError v-if="errors.length" :errors="errors" />
+        </Field>
+      </VeeField>
+
+      <!-- Number -->
+      <VeeField v-slot="{ field, errors }" name="number" rules="required">
+        <Field :data-invalid="!!errors.length">
           <Input
-            id="password"
-            type="password"
+            id="number"
+            type="number"
             class="bg-gray-100 h-13 rounded-full border-none"
             v-bind="field"
-            placeholder="Password"
+            placeholder="Number"
             autocomplete="off"
             :aria-invalid="!!errors.length"
           />

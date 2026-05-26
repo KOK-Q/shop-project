@@ -11,7 +11,7 @@ useHead({
 </script>
 
 <template>
-  <div class="relative flex flex-col min-h-screen px-6 py-10">
+  <div class="relative flex flex-col min-h-screen px-6 gap-18 justify-evenly">
     <!-- Background bubbles -->
     <div>
       <img src="/images/bubble1.png" class="absolute top-0 right-0" alt="" />
@@ -19,9 +19,9 @@ useHead({
     </div>
 
     <!-- Content -->
-    <div class="relative z-1 flex flex-1 flex-col gap-8">
+    <div class="relative z-1 flex justify-between flex-col gap-8">
       <!-- Title -->
-      <div class="mt-28">
+      <div class="mb-8">
         <h1 class="text-5xl font-bold overflow-hidden">Create Account</h1>
       </div>
 
