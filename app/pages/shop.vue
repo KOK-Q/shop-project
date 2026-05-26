@@ -1,50 +1,70 @@
 <script setup lang="ts">
-import { Camera, ArrowRight } from "@lucide/vue";
+import { ArrowRight } from "@lucide/vue";
 
 definePageMeta({
   middleware: "auth",
 });
 
-const modelValue = ref([])
+const productStore = useProductStore();
+
+const selectedCategories = ref<string[]>([]);
+
+const filteredProducts = computed(() =>
+  selectedCategories.value.length
+    ? productStore.products.filter((p) =>
+      selectedCategories.value.includes(p.category),
+    )
+    : productStore.products,
+);
 </script>
 
 <template>
   <div class="grid gap-6 p-4 pb-12">
+
     <!-- header and search bar -->
     <div class="flex justify-between items-baseline">
       <h1 class="text-2xl font-bold">Shop</h1>
-      <TagsInput v-model="modelValue" 
-      class="w-70 bg-gray-100 rounded-full border-none h-10">
-        <TagsInputItem v-for="item in modelValue" :key="item" :value="item"
-          class="bg-white rounded-full px-2 text-sm shadow-sm">
+      <SearchbarComponent v-model="selectedCategories" />
+      <!-- <TagsInput
+        v-model="modelValue"
+        class="w-70 bg-gray-100 rounded-full border-none h-10"
+      >
+        <TagsInputItem
+          v-for="item in modelValue"
+          :key="item"
+          :value="item"
+          class="bg-white rounded-full px-2 text-sm shadow-sm"
+        >
           <TagsInputItemText />
           <TagsInputItemDelete class="text-gray-400 hover:text-gray-600" />
         </TagsInputItem>
 
-        <TagsInputInput class="bg-transparent text-sm placeholder:text-gray-400 px-1" placeholder="Search" />
+        <TagsInputInput
+          class="bg-transparent text-sm placeholder:text-gray-400 px-1"
+          placeholder="Search"
+        />
 
         <Camera class="size-5" color="blue" />
-      </TagsInput>
+      </TagsInput> -->
     </div>
 
     <!-- banner -->
-      <Carousel>
-        <CarouselContent class="w-100">
-          <CarouselItem>
-            <div class="p-1">
-              <img src="/images/BigSaleBanner.png" />
-            </div>
-          </CarouselItem>
-          <CarouselItem>
-            <div class="p-1">
-              <img src="/images/BigSaleBanner1.png" />
-            </div>
-          </CarouselItem>
-        </CarouselContent>
-        <CarouselPrevious class="left-1" />
-        <CarouselNext class="right-1" />
-      </Carousel>
-   
+    <Carousel>
+      <CarouselContent class="w-100">
+        <CarouselItem>
+          <div class="p-1">
+            <img src="/images/BigSaleBanner.png" />
+          </div>
+        </CarouselItem>
+        <CarouselItem>
+          <div class="p-1">
+            <img src="/images/BigSaleBanner1.png" />
+          </div>
+        </CarouselItem>
+      </CarouselContent>
+      <CarouselPrevious class="left-1" />
+      <CarouselNext class="right-1" />
+    </Carousel>
 
     <!-- category -->
     <div class="space-y-2">
@@ -66,7 +86,7 @@ const modelValue = ref([])
     <!-- Products -->
     <div>
       <h1 class="font-bold text-2xl">Products</h1>
-      <ProductList />
+      <ProductList :products="filteredProducts" />
     </div>
   </div>
 </template>

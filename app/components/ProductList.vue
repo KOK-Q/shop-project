@@ -4,14 +4,26 @@ import { useProductStore } from "~/stores/products";
 
 const cartStore = useCartStore();
 const productStore = useProductStore();
-productStore.fetchProducts();
+
+await productStore.fetchProducts();
+
+interface Product {
+  id: number;
+  title: string;
+  price: number;
+  image: string;
+  category: string;
+  description: string;
+}
+
+defineProps<{
+  products?: Product[];
+}>();
 </script>
 
 <template>
   <div v-if="productStore.pending" class="grid lg:grid-cols-4 gap-4">
-    <div v-for="p in 12" :key="p">
-      <SkeletonPage />
-    </div>
+    <SkeletonPage v-for="n in 12" :key="n" />
   </div>
 
   <div v-else-if="productStore.error">
@@ -20,7 +32,7 @@ productStore.fetchProducts();
 
   <div v-else class="grid grid-cols-2 gap-4">
     <ProductCard
-      v-for="p in productStore.products"
+      v-for="p in products || productStore.products"
       :key="p.id"
       :product="p"
       class="h-100"

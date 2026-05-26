@@ -4,7 +4,7 @@ interface Product {
   price: number;
   image: string;
   category: string;
-  description: string
+  description: string;
 }
 
 export const useProductStore = defineStore("product", {
@@ -54,5 +54,7 @@ export const useProductStore = defineStore("product", {
 
       return result;
     },
+
+    categories: (state) => [...new Set(state.products.map((p) => p.category))],
   },
 });
