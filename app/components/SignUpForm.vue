@@ -17,7 +17,7 @@ function onSubmit(value: any) {
 
 <template>
   <Form @submit="onSubmit">
-    <FieldGroup class="grid gap-2">
+    <FieldGroup class="grid gap-3">
       <!-- email -->
       <VeeField v-slot="{ field, errors }" name="email" rules="required">
         <Field :data-invalid="!!errors.length">
@@ -51,13 +51,13 @@ function onSubmit(value: any) {
       </VeeField>
 
       <div class="flex flex-col gap-2">
-        <Button type="submit" class="bg-blue-600 w-full h-12 text-lg"
+        <Button type="submit" class="bg-blue-600 w-full rounded-xl h-12 text-lg"
           >Done</Button
         >
         <NuxtLink to="/">
           <Button
             type="submit"
-            class="rounded-full w-full flex justify-center bg-white text-black"
+            class="w-full flex justify-center bg-white text-black"
           >
             Cancel
           </Button>

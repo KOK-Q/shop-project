@@ -21,7 +21,7 @@ useHead({
     <!-- Content -->
     <div class="relative z-1 flex flex-1 flex-col gap-8">
       <!-- Title -->
-      <div class="mt-32">
+      <div class="mt-28">
         <h1 class="text-5xl font-bold overflow-hidden">Create Account</h1>
       </div>
 

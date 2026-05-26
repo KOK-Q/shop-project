@@ -53,14 +53,14 @@ function onSubmit(value: any) {
       <div class="flex flex-col gap-2 pb-6">
         <Button
           type="submit"
-          class="bg-blue-600 w-full flex justify-center h-12 text-lg"
+          class="bg-blue-600 w-full rounded-xl flex justify-center py-6 text-lg"
           >Next</Button
         >
 
         <NuxtLink to="/">
           <Button
             type="submit"
-            class="w-full flex justify-center bg-white text-black"
+            class="w-full flex rounded-xl justify-center bg-white py-6 text-black"
           >
             Cancel
           </Button>
