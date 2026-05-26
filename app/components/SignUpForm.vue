@@ -74,7 +74,9 @@ function onSubmit(value: any) {
       </VeeField>
 
       <div class="flex flex-col gap-2">
-        <Button type="submit" class="bg-blue-600 w-full rounded-xl h-12 text-lg"
+        <Button
+          type="submit"
+          class="bg-blue-600 w-full rounded-xl h-12 text-lg active:scale-95 transition"
           >Done</Button
         >
         <NuxtLink to="/">

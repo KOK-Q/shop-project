@@ -53,7 +53,7 @@ function onSubmit(value: any) {
       <div class="flex flex-col gap-2 pb-6">
         <Button
           type="submit"
-          class="bg-blue-600 w-full rounded-xl py-6 text-lg overflow-hidden"
+          class="bg-blue-600 w-full rounded-xl py-6 text-lg overflow-hidden active:scale-95 transition"
           >Next</Button
         >
 
