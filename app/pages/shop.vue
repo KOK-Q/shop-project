@@ -25,27 +25,6 @@ const filteredProducts = computed(() =>
     <div class="flex justify-between items-baseline">
       <h1 class="text-2xl font-bold">Shop</h1>
       <SearchbarComponent v-model="selectedCategories" />
-      <!-- <TagsInput
-        v-model="modelValue"
-        class="w-70 bg-gray-100 rounded-full border-none h-10"
-      >
-        <TagsInputItem
-          v-for="item in modelValue"
-          :key="item"
-          :value="item"
-          class="bg-white rounded-full px-2 text-sm shadow-sm"
-        >
-          <TagsInputItemText />
-          <TagsInputItemDelete class="text-gray-400 hover:text-gray-600" />
-        </TagsInputItem>
-
-        <TagsInputInput
-          class="bg-transparent text-sm placeholder:text-gray-400 px-1"
-          placeholder="Search"
-        />
-
-        <Camera class="size-5" color="blue" />
-      </TagsInput> -->
     </div>
 
     <!-- banner -->
