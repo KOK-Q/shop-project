@@ -47,7 +47,7 @@ const cartStore = useCartStore();
         <!-- info -->
         <div class="flex-1 flex flex-col justify-between">
           <div>
-            <h3 class="line-clamp-2">
+            <h3>
               {{ c.title }}
             </h3>
           </div>
