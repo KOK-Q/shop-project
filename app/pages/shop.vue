@@ -12,18 +12,18 @@ const selectedCategories = ref<string[]>([]);
 const filteredProducts = computed(() =>
   selectedCategories.value.length
     ? productStore.products.filter((p) =>
-      selectedCategories.value.includes(p.category),
-    )
+        selectedCategories.value.includes(p.category),
+      )
     : productStore.products,
 );
 </script>
 
 <template>
   <div class="grid gap-6 p-4 pb-12">
-
     <!-- header and search bar -->
     <div class="flex justify-between items-baseline">
       <h1 class="text-2xl font-bold">Shop</h1>
+
       <SearchbarComponent v-model="selectedCategories" />
     </div>
 
@@ -45,13 +45,20 @@ const filteredProducts = computed(() =>
       <CarouselNext class="right-0" />
     </Carousel>
 
+
+
+
+    <CategoryCircles  v-model="selectedCategories"/>
+
     <!-- category -->
     <div class="space-y-2">
       <div class="flex justify-between items-baseline">
         <h1 class="font-bold text-xl">Categories</h1>
         <div class="flex gap-2">
           <h3>see all</h3>
-          <div class="w-6 h-6 flex items-center justify-center bg-blue-600 rounded-full hover:bg-gray-200 transition">
+          <div
+            class="w-6 h-6 flex items-center justify-center bg-blue-600 rounded-full hover:bg-gray-200 transition"
+          >
             <ArrowRight class="text-white" />
           </div>
         </div>
