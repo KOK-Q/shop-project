@@ -29,7 +29,7 @@ const filteredProducts = computed(() =>
 
     <!-- banner -->
     <Carousel>
-      <CarouselContent class="w-100">
+      <CarouselContent class="w-full!">
         <CarouselItem>
           <div class="p-1">
             <img src="/images/BigSaleBanner.png" />
@@ -41,8 +41,8 @@ const filteredProducts = computed(() =>
           </div>
         </CarouselItem>
       </CarouselContent>
-      <CarouselPrevious class="left-1" />
-      <CarouselNext class="right-1" />
+      <CarouselPrevious class="left-0" />
+      <CarouselNext class="right-0" />
     </Carousel>
 
     <!-- category -->
