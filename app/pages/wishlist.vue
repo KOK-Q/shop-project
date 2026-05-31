@@ -60,7 +60,6 @@ const cartStore = useCartStore();
       <h1 class="text-3xl font-bold">Whishlist</h1>
     </div>
 
-
     <!-- products -->
     <ul class="flex flex-col gap-y-6">
       <li v-for="c in wishStore.wish" :key="c.id" class="flex gap-4">
@@ -90,7 +89,7 @@ const cartStore = useCartStore();
                 class="size-8 grid place-items-center"
                 @click="wishStore.add(c)"
               >
-                <PackagePlus class="text-blue-600" @click="cartStore.add(c)"/>
+                <PackagePlus class="text-blue-600" @click="cartStore.add(c)" />
               </button>
             </div>
           </div>

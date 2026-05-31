@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import ProductRow from "./ProductRow.vue";
-const productStore = useProductStore()
-
-
+const productStore = useProductStore();
 </script>
 
 <template>

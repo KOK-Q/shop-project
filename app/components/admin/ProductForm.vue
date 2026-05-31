@@ -10,13 +10,15 @@ interface Product {
 function onSubmit(values: Product) {
   productStore.products.push({
     id: 1,
+    category: "",
+    description: "",
     ...values,
   });
 }
 </script>
 
 <template>
-  <Form @submit="onSubmit">
+  <Form @submit="(values) => onSubmit(values as Product)">
     <FieldGroup class="grid justify-center p-12">
       <h1 class="font-bold text-2xl">New product</h1>
       <div class="bg-gray-100 w-100 border p-8 grid gap-2">
