@@ -11,7 +11,7 @@ const productStore = useProductStore();
     >
       <CardContent class="grid grid-cols-2 gap-2 p-0">
         <div
-          v-for="item in items.slice(0,4)"
+          v-for="item in items.slice(0, 4)"
           :key="item.id"
           class="rounded-md overflow-hidden bg-gray-100 aspect-square"
         >
@@ -28,9 +28,7 @@ const productStore = useProductStore();
           {{ category }}
         </p>
 
-        <span
-          class="bg-blue-100 text-blue-600 text-sm px-2 py-1 rounded-md"
-        >
+        <span class="bg-blue-100 text-blue-600 text-sm px-2 py-1 rounded-md">
           {{ items.length }}
         </span>
       </CardFooter>

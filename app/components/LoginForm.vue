@@ -5,9 +5,14 @@ import { Field as VeeField, defineRule } from "vee-validate";
 defineRule("required", required);
 defineRule("email", email);
 
+interface User {
+  email: string;
+  password: string;
+}
+
 const authStore = useAuthStore();
 
-function onSubmit(value: any) {
+function onSubmit(value: User) {
   const success = authStore.login(value);
   if (success) {
     navigateTo("/products");
@@ -16,7 +21,7 @@ function onSubmit(value: any) {
 </script>
 
 <template>
-  <Form @submit="onSubmit">
+  <Form @submit="(value) => onSubmit(value as User)">
     <!-- email -->
     <FieldGroup class="grid gap-2">
       <VeeField v-slot="{ field, errors }" name="email" rules="required">
