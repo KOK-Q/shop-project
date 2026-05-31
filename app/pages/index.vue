@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ArrowRight } from "@lucide/vue";
+
+const authStore = useAuthStore()
 </script>
 
 <template>
@@ -43,6 +45,10 @@ import { ArrowRight } from "@lucide/vue";
             <ArrowRight class="text-white" />
           </div>
         </NuxtLink>
+      </div>
+
+      <div class="flex items-center justify-center gap-2 text-sm" @click="authStore.logout()">
+        Logout
       </div>
     </div>
   </div>
