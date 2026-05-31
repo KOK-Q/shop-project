@@ -25,11 +25,11 @@ import { ArrowRight } from "@lucide/vue";
     <!-- CTA -->
     <div class="w-full mt-30 space-y-4">
       <NuxtLink to="/signup" class="block">
-        <button
-          class="w-full bg-blue-600 text-white py-3 rounded-xl font-medium shadow-md active:scale-95 transition"
+        <Button
+          class="w-full bg-blue-600 text-white h-13 hover:bg-blue-400 rounded-xl font-medium shadow-md active:scale-95 transition"
         >
           Let's get started
-        </button>
+        </Button>
       </NuxtLink>
 
       <!-- Login row -->

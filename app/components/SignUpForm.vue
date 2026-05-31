@@ -81,13 +81,13 @@ function onSubmit(value: User) {
       <div class="flex flex-col gap-2">
         <Button
           type="submit"
-          class="bg-blue-600 w-full rounded-xl h-12 text-lg active:scale-95 transition"
+          class="bg-blue-600 w-full rounded-xl h-12 text-lg active:scale-95 transition hover:bg-blue-500"
           >Done</Button
         >
         <NuxtLink to="/">
           <Button
             type="submit"
-            class="w-full flex justify-center bg-white text-black"
+            class="w-full flex justify-center h-12 bg-white text-black hover:bg-gray-200"
           >
             Cancel
           </Button>
