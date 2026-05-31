@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Home, ShoppingBasket, User, Package, Heart } from "@lucide/vue";
+import { Home, ShoppingBag, Package, Heart, SquareMenu } from "@lucide/vue";
 
 const route = useRoute();
 </script>
@@ -33,7 +33,7 @@ const route = useRoute();
       <!-- user -->
       <NavigationMenuItem>
         <NuxtLink to="/shop" :class="route.path === '/shop' && 'text-blue-600'">
-          <User
+          <SquareMenu
             :class="route.path === '/shop' ? 'text-black' : 'text-blue-700'"
           />
         </NuxtLink>
@@ -42,7 +42,7 @@ const route = useRoute();
       <!-- shopping basket -->
       <NavigationMenuItem>
         <NuxtLink to="/cart" :class="route.path === '/cart' && 'text-blue-600'">
-          <ShoppingBasket
+          <ShoppingBag
             :class="route.path === '/cart' ? 'text-black' : 'text-blue-700'"
           />
         </NuxtLink>

@@ -30,7 +30,9 @@ export const useCartStore = defineStore("cart", {
       const email = useAuthStore().user?.email;
       if (!email) return;
 
-      if (!this.carts[email]) this.carts[email] = [];
+      if (!this.carts[email]) {
+        this.carts[email] = [];
+      }
 
       const existing = this.carts[email].find((item) => item.id === product.id);
       if (existing) {

@@ -47,7 +47,7 @@ const wishStore = useWishStore();
 -->
 
 <script setup lang="ts">
-import { Trash2, ShoppingBasket } from "@lucide/vue";
+import { Trash2, PackagePlus } from "@lucide/vue";
 
 const wishStore = useWishStore();
 const cartStore = useCartStore();
@@ -87,10 +87,10 @@ const cartStore = useCartStore();
 
             <div class="flex items-center gap-1">
               <button
-                class="size-8 rounded-full border-2 border-blue-600 grid place-items-center"
+                class="size-8 grid place-items-center"
                 @click="wishStore.add(c)"
               >
-                <ShoppingBasket class="text-blue-600" @click="cartStore.add(c)"/>
+                <PackagePlus class="text-blue-600" @click="cartStore.add(c)"/>
               </button>
             </div>
           </div>
