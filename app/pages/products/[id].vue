@@ -15,7 +15,6 @@ const wishStore = useWishStore();
 const route = useRoute();
 const productId = Number(route.params.id);
 const productStore = useProductStore();
-const checked = ref(false);
 
 const cartItem = computed(
   () => cartStore.cart.find((item) => item.id === productId) ?? null,
@@ -94,12 +93,12 @@ const product = computed(() =>
         <div class="flex justify-between mt-4">
           <Button
             class="bg-gray-200"
-            @click="((checked = !checked), wishStore.add(product))"
+            @click="product && wishStore.toggleWish(product)"
           >
             <Heart
               class="size-5 transition-all"
-              :fill="checked ? 'red' : 'none'"
-              :color="checked ? 'red' : 'black'"
+              :fill="wishStore.isWished(productId) ? 'red' : 'none'"
+              :color="wishStore.isWished(productId) ? 'red' : 'black'"
               :stroke-width="1"
             />
           </Button>

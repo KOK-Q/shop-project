@@ -53,6 +53,14 @@ export const useWishStore = defineStore("wish", {
       );
       this.saveWishList();
     },
+
+    toggleWish(product: Omit<WishListItem, "quantity">) {
+      if (this.isWished(product.id)) {
+        this.remove(product.id);
+      } else {
+        this.add(product);
+      }
+    },
   },
 
   getters: {
@@ -65,6 +73,14 @@ export const useWishStore = defineStore("wish", {
       const email = useAuthStore().user?.email;
       if (!email) return [];
       return this.wishes[email] ?? [];
+    },
+
+    isWished(): (id: number) => boolean {
+      return (id: number) => {
+        const email = useAuthStore().user?.email;
+        if (!email) return false;
+        return (this.wishes[email] ?? []).some((item) => item.id === id);
+      };
     },
   },
 });
