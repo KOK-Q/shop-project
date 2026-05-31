@@ -87,7 +87,7 @@ useHead({
       </div>
 
       <!-- FORM -->
-      <LoginForm />
+      <LoginForm/>
     </div>
   </div>
 </template>

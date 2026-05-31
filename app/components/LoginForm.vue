@@ -25,7 +25,7 @@ function onSubmit(value: User) {
     <!-- email -->
     <FieldGroup class="grid gap-2">
       <VeeField v-slot="{ field, errors }" name="email" rules="required">
-        <Field :data-invalid="!!errors.length">
+        <Field :data-invalid="!!errors.length" class="py-2 px-1">
           <Input
             id="email"
             class="bg-gray-100 h-13 rounded-full border-none"
@@ -40,7 +40,7 @@ function onSubmit(value: User) {
 
       <!-- password -->
       <VeeField v-slot="{ field, errors }" name="password" rules="required">
-        <Field :data-invalid="!!errors.length">
+        <Field :data-invalid="!!errors.length" class="py-2 px-1">
           <Input
             id="password"
             type="password"
