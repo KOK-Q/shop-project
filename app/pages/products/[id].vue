@@ -10,6 +10,7 @@ const disabledSizes = ["XXL", "XXXL"];
 const selectedSize = ref("M");
 
 const cartStore = useCartStore();
+const wishStore = useWishStore();
 
 const route = useRoute();
 const productId = Number(route.params.id);
@@ -91,7 +92,10 @@ const product = computed(() =>
         </div>
 
         <div class="flex justify-between mt-4">
-          <Button class="bg-gray-200" @click="checked = !checked">
+          <Button
+            class="bg-gray-200"
+            @click="((checked = !checked), wishStore.add(product))"
+          >
             <Heart
               class="size-5 transition-all"
               :fill="checked ? 'red' : 'none'"

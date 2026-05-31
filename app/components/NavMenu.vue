@@ -13,14 +13,17 @@ const route = useRoute();
     >
       <!-- home -->
       <NavigationMenuItem>
-        <NuxtLink to="/" :class="route.path === '/cart' && 'text-blue-600'">
+        <NuxtLink to="/" :class="route.path === '/' && 'text-blue-600'">
           <Home :class="route.path === '/' ? 'text-black' : 'text-blue-700'" />
         </NuxtLink>
       </NavigationMenuItem>
 
       <!-- wish list -->
       <NavigationMenuItem>
-        <NuxtLink to="/" :class="route.path === '/wishlist' && 'text-blue-600'">
+        <NuxtLink
+          to="/wishlist"
+          :class="route.path === '/wishlist' && 'text-blue-600'"
+        >
           <Heart
             :class="route.path === '/wishlist' ? 'text-black' : 'text-blue-700'"
           />
@@ -29,7 +32,7 @@ const route = useRoute();
 
       <!-- user -->
       <NavigationMenuItem>
-        <NuxtLink to="/shop" :class="route.path === '/cart' && 'text-blue-600'">
+        <NuxtLink to="/shop" :class="route.path === '/shop' && 'text-blue-600'">
           <User
             :class="route.path === '/shop' ? 'text-black' : 'text-blue-700'"
           />
