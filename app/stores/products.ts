@@ -20,7 +20,7 @@ export const useProductStore = defineStore("product", {
       this.error = null;
 
       try {
-        // await new Promise((resolve) => setTimeout(resolve, 3000));
+        await new Promise((resolve) => setTimeout(resolve, 3000));
         const data = await $fetch<Product[]>(
           "https://fakestoreapi.com/products",
         );

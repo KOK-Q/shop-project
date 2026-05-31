@@ -34,13 +34,25 @@ export const useCartStore = defineStore("cart", {
         this.carts[email] = [];
       }
 
-      const existing = this.carts[email].find((item) => item.id === product.id);
-      if (existing) {
-        existing.quantity++;
-      } else {
-        this.carts[email].push({ ...product, quantity: 1 });
-      }
+      const current = this.carts[email] ?? [];
+      const existing = current.find((item) => item.id === product.id);
 
+      if (existing) {
+        this.carts[email] = current.map((item) =>
+          item.id === product.id
+            ? {
+                ...item,
+                quantity: item.quantity + 1,
+              }
+            : item,
+        );
+        // existing.quantity++;
+        // this.carts[email] = [...this.carts[email]];
+      } else {
+        // this.carts[email].push({ ...product, quantity: 1 });
+        this.carts[email] = [...current, { ...product, quantity: 1 }];
+      }
+      this.carts = { ...this.carts };
       this.saveCart();
     },
 
@@ -56,25 +68,26 @@ export const useCartStore = defineStore("cart", {
 
     increase(id: number) {
       const email = this.currentUserEmail;
-      if (!email) return;
+      if (!email || !this.carts[email]) return;
 
-      const item = this.carts[email]?.find((item) => item.id === id);
-
+      const item = this.carts[email].find((item) => item.id === id);
       if (item) {
         item.quantity++;
+        this.carts[email] = [...this.carts[email]];
       }
       this.saveCart();
     },
 
     decrease(id: number) {
       const email = useAuthStore().user?.email;
-      if (!email) return;
+      if (!email || !this.carts[email]) return;
 
-      const item = this.carts[email]?.find((item) => item.id === id);
+      const item = this.carts[email].find((i) => i.id === id);
       if (!item) return;
 
       if (item.quantity > 1) {
         item.quantity--;
+        this.carts[email] = [...this.carts[email]];
       } else {
         this.remove(id);
         return;
