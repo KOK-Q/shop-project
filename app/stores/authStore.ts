@@ -14,7 +14,7 @@ export const useAuthStore = defineStore("user", {
       if (import.meta.client) {
         const user = localStorage.getItem("user");
         const token = localStorage.getItem("token");
-        
+
         if (user && token) {
           this.user = JSON.parse(user);
           this.token = token;

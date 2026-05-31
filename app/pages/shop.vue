@@ -45,10 +45,7 @@ const filteredProducts = computed(() =>
       <CarouselNext class="right-0" />
     </Carousel>
 
-
-
-
-    <CategoryCircles  v-model="selectedCategories"/>
+    <CategoryCircles v-model="selectedCategories" />
 
     <!-- category -->
     <div class="space-y-2">

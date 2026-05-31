@@ -13,7 +13,9 @@ useHead({
 </script>
 
 <template>
-  <div class="relative flex min-h-screen flex-col justify-between overflow-hidden pb-6">
+  <div
+    class="relative flex min-h-screen flex-col justify-between overflow-hidden pb-6"
+  >
     <div>
       <!-- TOP LEFT BLUE -->
       <svg
