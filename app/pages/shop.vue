@@ -68,7 +68,7 @@ const filteredProducts = computed(() =>
 
     <!-- Products -->
     <div>
-      <h1 class="font-bold text-2xl">Products</h1>
+      <h1 class="font-bold text-2xl mb-2">Products</h1>
       <ProductList :products="filteredProducts" />
     </div>
   </div>

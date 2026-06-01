@@ -35,7 +35,6 @@ defineProps<{
       v-for="p in products || productStore.products"
       :key="p.id"
       :product="p"
-      class="h-100"
       @add-to-cart="cartStore.add"
     />
   </div>
