@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ArrowRight } from "@lucide/vue";
+import type { EmblaCarouselType } from "embla-carousel";
 
 definePageMeta({
   middleware: "auth",
@@ -16,6 +17,21 @@ const filteredProducts = computed(() =>
       )
     : productStore.products,
 );
+
+const api = ref();
+const current = ref(0);
+
+function setApi(carouselApi: EmblaCarouselType | undefined) {
+  if (!carouselApi) return;
+
+  api.value = carouselApi;
+
+  current.value = carouselApi.selectedScrollSnap();
+
+  carouselApi.on("select", () => {
+    current.value = carouselApi.selectedScrollSnap();
+  });
+}
 </script>
 
 <template>
@@ -28,22 +44,41 @@ const filteredProducts = computed(() =>
     </div>
 
     <!-- banner -->
-    <Carousel>
-      <CarouselContent class="w-full!">
+    <Carousel @init-api="setApi">
+      <CarouselContent>
         <CarouselItem>
-          <div class="p-1">
-            <img src="/images/BigSaleBanner.png" />
+          <div class="p-1 h-48">
+            <img src="/images/BigSaleBanner.png" class="w-full h-full" />
           </div>
         </CarouselItem>
         <CarouselItem>
-          <div class="p-1">
-            <img src="/images/BigSaleBanner1.png" />
+          <div class="p-1 h-48">
+            <img src="/images/BigSaleBanner1.png" class="w-full h-full" />
+          </div>
+        </CarouselItem>
+        <CarouselItem>
+          <div class="p-1 h-48">
+            <img src="/images/BigSaleBanner.png" class="w-full h-full" />
+          </div>
+        </CarouselItem>
+        <CarouselItem>
+          <div class="p-1 h-48">
+            <img src="/images/BigSaleBanner1.png" class="w-full h-full" />
           </div>
         </CarouselItem>
       </CarouselContent>
-      <CarouselPrevious class="left-0" />
-      <CarouselNext class="right-0" />
     </Carousel>
+    <div class="flex justify-center gap-3">
+      <button
+        v-for="(_, index) in 4"
+        :key="index"
+        class="transition-all duration-30 rounded-full"
+        :class="
+          current === index ? 'w-10 h-3 bg-blue-600' : 'w-3 h-3 bg-slate-300'
+        "
+        @click="api?.scrollTo(index)"
+      />
+    </div>
 
     <CategoryCircles v-model="selectedCategories" />
 
