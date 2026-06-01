@@ -1,21 +1,28 @@
 <script setup lang="ts">
 import { ArrowRight } from "@lucide/vue";
 
-const authStore = useAuthStore()
+const authStore = useAuthStore();
+
+definePageMeta({
+  layout: false,
+});
 </script>
 
 <template>
-  <div class="min-h-screen flex flex-col justify-center items-center px-6">
+  <div class="min-h-screen flex flex-col justify-evenly items-center px-6">
+
+
+
     <div class="flex flex-col justify-center items-center">
       <!-- Icon -->
       <div
-        class="w-32 h-32 rounded-full shadow-md flex items-center justify-center mb-6"
+        class="w-32 h-32 rounded-full shadow-xl flex items-center justify-center mb-10"
       >
         <img src="/images/bag.png" class="w-20 h-20" />
       </div>
 
       <!-- Title -->
-      <h1 class="font-bold text-4xl overflow-hidden">Shoppe</h1>
+      <h1 class="font-bold text-5xl overflow-hidden mb-4">Shoppe</h1>
 
       <!-- Subtitle -->
       <p class="text-center text-gray-500">
@@ -24,11 +31,14 @@ const authStore = useAuthStore()
       </p>
     </div>
 
+
+
+
     <!-- CTA -->
-    <div class="w-full mt-30 space-y-4">
+    <div class="w-full space-y-4">
       <NuxtLink to="/signup" class="block">
         <Button
-          class="w-full bg-blue-600 text-white h-13 hover:bg-blue-400 rounded-xl font-medium shadow-md active:scale-95 transition"
+          class="w-full text-lg font-light bg-blue-600 text-white h-13 hover:bg-blue-400 rounded-xl shadow-md active:scale-95 transition"
         >
           Let's get started
         </Button>
@@ -47,7 +57,10 @@ const authStore = useAuthStore()
         </NuxtLink>
       </div>
 
-      <div class="flex items-center justify-center gap-2 text-sm" @click="authStore.logout()">
+      <div
+        class="flex items-center justify-center gap-2 text-sm"
+        @click="authStore.logout()"
+      >
         Logout
       </div>
     </div>

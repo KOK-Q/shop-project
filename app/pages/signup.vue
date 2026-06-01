@@ -1,4 +1,8 @@
 <script setup lang="ts">
+definePageMeta({
+  layout: false,
+});
+
 useHead({
   title: "Signup | MyShop",
   meta: [
@@ -11,7 +15,9 @@ useHead({
 </script>
 
 <template>
-  <div class="relative flex flex-col min-h-screen px-6 pb-10 gap-18 justify-evenly">
+  <div
+    class="relative flex flex-col min-h-screen px-6 pb-10 gap-18 justify-evenly"
+  >
     <!-- Background bubbles -->
     <div>
       <img src="/images/bubble1.png" class="absolute top-0 right-0" alt="" />

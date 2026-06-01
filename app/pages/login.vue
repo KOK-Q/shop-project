@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import LoginForm from "@/components/LoginForm.vue";
 
+definePageMeta({
+  layout: false,
+});
+
 useHead({
   title: "Login | MyShop",
   meta: [
@@ -87,7 +91,7 @@ useHead({
       </div>
 
       <!-- FORM -->
-      <LoginForm/>
+      <LoginForm />
     </div>
   </div>
 </template>
