@@ -3,17 +3,17 @@ const productStore = useProductStore();
 </script>
 
 <template>
-  <div class="grid grid-cols-2 gap-2">
+  <div class="grid grid-cols-2 gap-1">
     <Card
       v-for="(items, category) in productStore.groupedCategories"
       :key="category"
-      class="p-2"
+      class="px-2 border border-t-0 shadow-lg"
     >
-      <CardContent class="grid grid-cols-2 gap-2 p-0">
+      <CardContent class="grid grid-cols-2 gap-1 p-0">
         <div
           v-for="item in items.slice(0, 4)"
           :key="item.id"
-          class="rounded-md overflow-hidden bg-gray-100 aspect-square"
+          class="rounded-md overflow-hidden bg-gray-200 aspect-square"
         >
           <img
             :src="item.image"
@@ -23,8 +23,8 @@ const productStore = useProductStore();
         </div>
       </CardContent>
 
-      <CardFooter class="flex justify-between items-center px-0 pb-0">
-        <p class="font-bold capitalize">
+      <CardFooter class="flex justify-between items-center">
+        <p class="font-bold text-sm capitalize">
           {{ category }}
         </p>
 
