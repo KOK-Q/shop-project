@@ -18,7 +18,7 @@ useHead({
 
 <template>
   <div
-    class="relative flex min-h-screen flex-col justify-between overflow-hidden pb-6"
+    class="relative flex min-h-screen flex-col justify-between overflow-hidden"
   >
     <div>
       <!-- TOP LEFT BLUE -->
@@ -83,7 +83,7 @@ useHead({
     </div>
 
     <!-- CONTENT -->
-    <div class="relative z-10 flex flex-col gap-10 px-5">
+    <div class="relative z-10 flex flex-col gap-2 px-5">
       <!-- TITLE -->
       <div>
         <h1 class="text-[56px] font-bold">Login</h1>

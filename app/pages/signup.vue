@@ -16,7 +16,7 @@ useHead({
 
 <template>
   <div
-    class="relative flex flex-col min-h-screen px-6 pb-10 gap-18 justify-evenly"
+    class="relative flex flex-col min-h-screen px-6 gap-18 justify-evenly"
   >
     <!-- Background bubbles -->
     <div>
