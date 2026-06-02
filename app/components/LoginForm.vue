@@ -10,12 +10,23 @@ interface User {
   password: string;
 }
 
+const loading = ref(false);
 const authStore = useAuthStore();
 
-function onSubmit(value: User) {
-  const success = authStore.login(value);
-  if (success) {
-    navigateTo("/products");
+async function onSubmit(value: User) {
+  console.log("start");
+  loading.value = true;
+  console.log("loading =", loading.value);
+
+  try {
+    const success = authStore.login(value);
+    if (success) {
+      await new Promise((resolve) => setTimeout(resolve, 3000));
+      await navigateTo("/products");
+    }
+  } finally {
+    loading.value = false;
+    console.log("finally");
   }
 }
 </script>
@@ -58,8 +69,11 @@ function onSubmit(value: User) {
       <div class="flex flex-col gap-2 pb-6">
         <Button
           type="submit"
+          :disabled="loading"
           class="bg-blue-600 w-full rounded-xl py-6 text-lg overflow-hidden active:scale-95 transition hover:bg-blue-500"
-          >Next</Button
+        >
+          <Spinner v-if="loading" />
+          {{ loading ? "Please wait..." : "Next" }}</Button
         >
 
         <NuxtLink to="/">
