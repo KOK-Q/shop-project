@@ -14,6 +14,12 @@ const filteredProducts = computed(() =>
       )
     : productStore.products,
 );
+
+onMounted(() => {
+  if (!productStore.products.length) {
+    productStore.fetchProducts();
+  }
+});
 </script>
 
 <template>

@@ -12,6 +12,7 @@ interface User {
 
 const loading = ref(false);
 const authStore = useAuthStore();
+const productStore = useProductStore();
 
 async function onSubmit(value: User) {
   console.log("start");
@@ -21,7 +22,7 @@ async function onSubmit(value: User) {
   try {
     const success = authStore.login(value);
     if (success) {
-      await new Promise((resolve) => setTimeout(resolve, 3000));
+      await productStore.fetchProducts();
       await navigateTo("/products");
     }
   } finally {
