@@ -37,7 +37,7 @@ function setApi(carouselApi: EmblaCarouselType | undefined) {
 <template>
   <div class="grid gap-6 p-4 pb-12">
     <!-- header and search bar -->
-    <div class="flex justify-between items-baseline">
+    <div class="flex justify-between items-baseline gap-2">
       <h1 class="text-2xl font-bold">Shop</h1>
 
       <SearchbarComponent v-model="selectedCategories" />

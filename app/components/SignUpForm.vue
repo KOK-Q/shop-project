@@ -47,6 +47,7 @@ function onSubmit(value: User) {
           <InputGroup class="bg-gray-100 h-13 rounded-full border-none">
             <InputGroupInput
               id="password"
+              class="rounded-xl"
               :type="checked ? 'text' : 'password'"
               v-bind="field"
               placeholder="Password"
