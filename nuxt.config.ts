@@ -9,7 +9,12 @@ export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  modules: ["@nuxt/eslint", "shadcn-nuxt", "@pinia/nuxt"],
+  modules: [
+    "@nuxt/eslint",
+    "shadcn-nuxt",
+    "@pinia/nuxt",
+    "@nuxtjs/google-fonts",
+  ],
 
   shadcn: {
     /**
@@ -28,5 +33,11 @@ export default defineNuxtConfig({
 
   pinia: {
     storesDirs: ["./stores/**", "./custom-folder/stores/**"],
+  },
+
+  googleFonts: {
+    families: {
+      Raleway: [300, 400, 500, 600, 700],
+    },
   },
 });

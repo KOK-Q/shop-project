@@ -10,9 +10,6 @@ definePageMeta({
 
 <template>
   <div class="min-h-screen flex flex-col justify-evenly items-center px-6">
-
-
-
     <div class="flex flex-col justify-center items-center">
       <!-- Icon -->
       <div
@@ -25,14 +22,11 @@ definePageMeta({
       <h1 class="font-bold text-5xl overflow-hidden mb-4">Shoppe</h1>
 
       <!-- Subtitle -->
-      <p class="text-center text-gray-500">
+      <p class="text-center">
         Beautiful eCommerce UI Kit<br />
         for your online store
       </p>
     </div>
-
-
-
 
     <!-- CTA -->
     <div class="w-full space-y-4">
@@ -45,7 +39,7 @@ definePageMeta({
       </NuxtLink>
 
       <!-- Login row -->
-      <div class="flex items-center justify-center gap-2 text-gray-500 text-sm">
+      <div class="flex items-center justify-center gap-2 text-sm">
         <span>I already have an account</span>
 
         <NuxtLink to="/login" class="flex items-center justify-center">
