@@ -13,8 +13,13 @@ const route = useRoute();
     >
       <!-- home -->
       <NavigationMenuItem>
-        <NuxtLink to="/products" :class="route.path === '/products' && 'text-blue-600'">
-          <Home :class="route.path === '/products' ? 'text-black' : 'text-blue-700'" />
+        <NuxtLink
+          to="/products"
+          :class="route.path === '/products' && 'text-blue-600'"
+        >
+          <Home
+            :class="route.path === '/products' ? 'text-black' : 'text-blue-700'"
+          />
         </NuxtLink>
       </NavigationMenuItem>
 
@@ -30,7 +35,7 @@ const route = useRoute();
         </NuxtLink>
       </NavigationMenuItem>
 
-      <!-- user -->
+      <!-- products page -->
       <NavigationMenuItem>
         <NuxtLink to="/shop" :class="route.path === '/shop' && 'text-blue-600'">
           <SquareMenu
@@ -48,14 +53,14 @@ const route = useRoute();
         </NuxtLink>
       </NavigationMenuItem>
 
-      <!-- products page -->
+      <!-- profile page -->
       <NavigationMenuItem>
         <NuxtLink
-          to="/products"
-          :class="route.path === '/products' && 'text-blue-600'"
+          to="/profile"
+          :class="route.path === '/profile' && 'text-blue-600'"
         >
           <User
-            :class="route.path === '/products' ? 'text-black' : 'text-blue-700'"
+            :class="route.path === '/profile' ? 'text-black' : 'text-blue-700'"
           />
         </NuxtLink>
       </NavigationMenuItem>
