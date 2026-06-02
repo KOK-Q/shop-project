@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Home, ShoppingBag, Package, Heart, SquareMenu } from "@lucide/vue";
+import { Home, ShoppingBag, Heart, SquareMenu, User } from "@lucide/vue";
 
 const route = useRoute();
 </script>
@@ -13,8 +13,8 @@ const route = useRoute();
     >
       <!-- home -->
       <NavigationMenuItem>
-        <NuxtLink to="/" :class="route.path === '/' && 'text-blue-600'">
-          <Home :class="route.path === '/' ? 'text-black' : 'text-blue-700'" />
+        <NuxtLink to="/products" :class="route.path === '/products' && 'text-blue-600'">
+          <Home :class="route.path === '/products' ? 'text-black' : 'text-blue-700'" />
         </NuxtLink>
       </NavigationMenuItem>
 
@@ -54,7 +54,7 @@ const route = useRoute();
           to="/products"
           :class="route.path === '/products' && 'text-blue-600'"
         >
-          <Package
+          <User
             :class="route.path === '/products' ? 'text-black' : 'text-blue-700'"
           />
         </NuxtLink>
