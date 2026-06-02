@@ -2,6 +2,10 @@
 import { Plus, Minus, Pencil, Trash2 } from "@lucide/vue";
 
 const cartStore = useCartStore();
+
+function changePage(id: number) {
+  navigateTo(`/products/${id}`);
+}
 </script>
 
 <template>
@@ -32,7 +36,7 @@ const cartStore = useCartStore();
 
     <!-- products -->
     <ul class="flex flex-col gap-y-6">
-      <li v-for="c in cartStore.cart" :key="c.id" class="flex gap-4">
+      <li v-for="c in cartStore.cart" :key="c.id" class="flex gap-4" @click="changePage(c.id)">
         <!-- image -->
         <div class="relative p-1 border rounded-xl shadow-xl">
           <img :src="c.image" class="w-24 h-26 rounded-xl bg-gray-100" />
