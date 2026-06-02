@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Heart, Plus, Minus } from "@lucide/vue";
+import { Heart, Plus, Minus, Forward } from "@lucide/vue";
 
 definePageMeta({
   middleware: "auth",
@@ -34,8 +34,17 @@ const product = computed(() =>
       </div>
 
       <!-- content -->
-      <div class="p-6 flex flex-col gap-2">
-        <p class="font-extrabold text-3xl">${{ product.price }}</p>
+      <div class="p-6 flex flex-col gap-4">
+        <div class="flex justify-between">
+          <p class="font-extrabold text-3xl">${{ product.price }}</p>
+
+          <NuxtLink to="/products">
+            <Forward
+              class="bg-red-100 rounded-full p-1 size-10 border-0 fill-mauve-400 text-mauve-400"
+            />
+          </NuxtLink>
+        </div>
+
         <h1 class="font-bold text-xl">{{ product.title }}</h1>
         <p>{{ product.description }}</p>
 
@@ -102,11 +111,13 @@ const product = computed(() =>
               :stroke-width="1"
             />
           </Button>
-          <Button class="bg-blue-600 px-10" @click="cartStore.add(product)">
-            Buy Now
-          </Button>
+
           <Button class="bg-black px-10" @click="cartStore.add(product)">
             Add to Cart
+          </Button>
+
+          <Button class="bg-blue-600 px-10" @click="cartStore.add(product)">
+            Buy Now
           </Button>
         </div>
       </div>
