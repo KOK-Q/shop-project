@@ -37,12 +37,12 @@ async function onSubmit(value: User) {
     <!-- email -->
     <FieldGroup class="grid gap-2">
       <VeeField v-slot="{ field, errors }" name="email" rules="required">
-        <Field :data-invalid="!!errors.length" class="py-2 px-1">
+        <Field :data-invalid="!!errors.length" class="px-1">
           <Input
             id="email"
-            class="bg-gray-100 h-13 rounded-full border-none"
+            class="h-12 rounded-full px-4"
             v-bind="field"
-            placeholder="Enter your email"
+            placeholder="Email"
             autocomplete="off"
             :aria-invalid="!!errors.length"
           />
@@ -52,11 +52,11 @@ async function onSubmit(value: User) {
 
       <!-- password -->
       <VeeField v-slot="{ field, errors }" name="password" rules="required">
-        <Field :data-invalid="!!errors.length" class="py-2 px-1">
+        <Field :data-invalid="!!errors.length" class="px-1">
           <Input
             id="password"
             type="password"
-            class="bg-gray-100 h-13 rounded-full border-none"
+            class="h-12 rounded-full px-4"
             v-bind="field"
             placeholder="Enter your password"
             autocomplete="off"
@@ -71,7 +71,7 @@ async function onSubmit(value: User) {
         <Button
           type="submit"
           :disabled="loading"
-          class="bg-blue-600 w-full rounded-xl py-6 text-lg overflow-hidden active:scale-95 transition hover:bg-blue-500"
+          class="bg-blue-600 w-full rounded-2xl h-15 text-lg overflow-hidden active:scale-95 transition hover:bg-blue-500"
         >
           <Spinner v-if="loading" />
           {{ loading ? "Please wait..." : "Next" }}</Button
@@ -80,7 +80,7 @@ async function onSubmit(value: User) {
         <NuxtLink to="/">
           <Button
             type="submit"
-            class="w-full rounded-xl bg-white py-6 text-black overflow-hidden hover:bg-gray-200"
+            class="w-full rounded-2xl bg-white h-15 text-black overflow-hidden hover:bg-gray-200"
           >
             Cancel
           </Button>

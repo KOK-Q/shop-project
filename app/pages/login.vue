@@ -83,11 +83,11 @@ useHead({
     </div>
 
     <!-- CONTENT -->
-    <div class="relative z-10 flex flex-col gap-2 px-5">
+    <div class="relative z-10 flex flex-col gap-5 px-5">
       <!-- TITLE -->
       <div>
-        <h1 class="text-[56px] font-bold">Login</h1>
-        <p class="mt-2 text-[18px]">Good to see you back! 🖤</p>
+        <h1 class="text-[52px] font-bold">Login</h1>
+        <p class="text-[18px]">Good to see you back! 🖤</p>
       </div>
 
       <!-- FORM -->
