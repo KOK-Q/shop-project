@@ -26,27 +26,25 @@ const product = computed(() =>
 </script>
 
 <template>
-  <div v-if="product" class="pb-8">
+  <div v-if="product" class="pb-18 overflow-x-hidden">
     <!-- img -->
-    <div class="grid gap-2">
-      <div class="h-80 bg-gray-200 p-6 flex justify-center items-center">
-        <img :src="product.image" class="h-60 p-1" loading="lazy" />
-      </div>
+    <div class="grid gap-4">
+      <ProductPicSlides />
 
       <!-- content -->
-      <div class="p-6 flex flex-col gap-4">
+      <div class="px-6 flex flex-col gap-4">
         <div class="flex justify-between">
-          <p class="font-extrabold text-3xl">${{ product.price }}</p>
+          <p class="font-extrabold text-2xl">${{ product.price }}</p>
 
           <NuxtLink to="/products">
             <Forward
-              class="bg-red-100 rounded-full p-1 size-10 border-0 fill-mauve-400 text-mauve-400"
+              class="bg-red-100 rounded-full p-1 size-8 border-0 fill-mauve-400 text-mauve-400"
             />
           </NuxtLink>
         </div>
 
         <h1 class="font-bold text-xl">{{ product.title }}</h1>
-        <p>{{ product.description }}</p>
+        <p class="text-[15px]">{{ product.description }}</p>
 
         <!-- size -->
         <div>
@@ -56,7 +54,7 @@ const product = computed(() =>
               v-for="size in sizes"
               :key="size"
               :disabled="disabledSizes.includes(size)"
-              class="px-3 py-1 rounded-lg text-sm font-medium transition-all"
+              class="px-3 rounded-sm text-sm font-medium transition-all"
               :class="{
                 'border-2 border-blue-600 bg-white text-blue-600':
                   selectedSize === size,
@@ -99,7 +97,8 @@ const product = computed(() =>
           </div>
         </div>
 
-        <div class="flex justify-between mt-4">
+        <!-- add buttons -->
+        <div class="flex justify-between gap-1 mt-4">
           <Button
             class="bg-gray-200"
             @click="product && wishStore.toggleWish(product)"
@@ -112,11 +111,17 @@ const product = computed(() =>
             />
           </Button>
 
-          <Button class="bg-black px-10" @click="cartStore.add(product)">
+          <Button
+            class="bg-black px-8 rounded-lg"
+            @click="cartStore.add(product)"
+          >
             Add to Cart
           </Button>
 
-          <Button class="bg-blue-600 px-10" @click="cartStore.add(product)">
+          <Button
+            class="bg-blue-600 px-8 rounded-lg"
+            @click="cartStore.add(product)"
+          >
             Buy Now
           </Button>
         </div>
