@@ -24,7 +24,7 @@ const productStore = useProductStore();
       </CardContent>
 
       <CardFooter class="flex justify-between items-center">
-        <p class="font-bold text-sm capitalize">
+        <p class="font-bold text-[13px] capitalize">
           {{ category }}
         </p>
 

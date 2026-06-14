@@ -9,7 +9,7 @@ const modelValue = defineModel<string[]>({
 <template>
   <TagsInput
     v-model="modelValue"
-    class="w-full h-9 bg-gray-100 rounded-full border-none px-3 flex-nowrap overflow-x-auto placeholder:text-placeholder"
+    class="w-full overflow-x-hidden min-h-9 bg-gray-100 rounded-full border-none px-3 placeholder:text-placeholder"
   >
     <TagsInputItem
       v-for="item in modelValue"
@@ -22,10 +22,10 @@ const modelValue = defineModel<string[]>({
     </TagsInputItem>
 
     <TagsInputInput
-      placeholder="Search"
+      :placeholder="modelValue.length ? '' : 'Search...'"
       class="bg-transparent px-1 flex-1 min-w-0"
     />
 
-    <Camera class="size-5 text-blue-600" />
+    <Camera class="size-5 text-blue-600 flex items-center" />
   </TagsInput>
 </template>

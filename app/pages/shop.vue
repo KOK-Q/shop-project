@@ -86,12 +86,12 @@ function setApi(carouselApi: EmblaCarouselType | undefined) {
     <div class="space-y-2">
       <div class="flex justify-between items-baseline">
         <h1 class="font-bold text-xl">Categories</h1>
-        <div class="flex gap-2 font">
-          <h3 class="font-bold">See All</h3>
+        <div class="flex gap-3 items-center">
+          <h3 class="text-sm font-semibold">See All</h3>
           <div
-            class="w-6 h-6 flex items-center justify-center bg-blue-600 rounded-full hover:bg-gray-200 transition"
+            class="w-7.5 h-7.5 flex items-center justify-center bg-blue-600 rounded-full hover:bg-gray-200 transition"
           >
-            <ArrowRight class="text-white" />
+            <ArrowRight class="text-white" :size="20" />
           </div>
         </div>
       </div>
