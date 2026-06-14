@@ -24,14 +24,14 @@ function onSubmit(value: User) {
 
 <template>
   <Form @submit="(value) => onSubmit(value as User)">
-    <FieldGroup class="grid gap-3">
+    <FieldGroup class="grid gap-2">
       <!-- email -->
       <VeeField v-slot="{ field, errors }" name="email" rules="required">
-        <Field :data-invalid="!!errors.length" class="py-2 px-1">
+        <Field :data-invalid="!!errors.length" class="px-1">
           <Input
             id="email"
             type="email"
-            class="bg-gray-100 h-13 rounded-full border-none"
+            class="h-13 rounded-full border-none px-4.5"
             v-bind="field"
             placeholder="Email"
             autocomplete="off"
@@ -43,11 +43,11 @@ function onSubmit(value: User) {
 
       <!-- password -->
       <VeeField v-slot="{ field, errors }" name="password" rules="required">
-        <Field :data-invalid="!!errors.length" class="py-2 px-1">
-          <InputGroup class="bg-gray-100 h-13 rounded-full border-none">
+        <Field :data-invalid="!!errors.length" class="px-1">
+          <InputGroup class="h-13 rounded-full border-none">
             <InputGroupInput
               id="password"
-              class="rounded-xl"
+              class="rounded-xl px-4.5"
               :type="checked ? 'text' : 'password'"
               v-bind="field"
               placeholder="Password"
@@ -65,13 +65,13 @@ function onSubmit(value: User) {
 
       <!-- Number -->
       <VeeField v-slot="{ field, errors }" name="number" rules="required">
-        <Field :data-invalid="!!errors.length" class="py-2 px-1">
+        <Field :data-invalid="!!errors.length" class="px-1">
           <Input
             id="number"
             type="number"
-            class="bg-gray-100 h-13 rounded-full border-none"
+            class="h-13 rounded-full border-none px-4.5"
             v-bind="field"
-            placeholder="Number"
+            placeholder="Your number"
             autocomplete="off"
             :aria-invalid="!!errors.length"
           />
@@ -79,16 +79,16 @@ function onSubmit(value: User) {
         </Field>
       </VeeField>
 
-      <div class="flex flex-col gap-2">
+      <div class="flex flex-col gap-2 mt-8">
         <Button
           type="submit"
-          class="bg-blue-600 w-full rounded-xl h-12 text-lg active:scale-95 transition hover:bg-blue-500"
+          class="bg-blue-600 w-full rounded-2xl h-15 text-lg active:scale-95 transition hover:bg-blue-500"
           >Done</Button
         >
         <NuxtLink to="/">
           <Button
             type="submit"
-            class="w-full flex justify-center h-12 bg-white text-black hover:bg-gray-200"
+            class="w-full flex justify-center h-15 bg-white text-black hover:bg-gray-200"
           >
             Cancel
           </Button>

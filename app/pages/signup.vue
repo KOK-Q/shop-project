@@ -16,7 +16,7 @@ useHead({
 
 <template>
   <div
-    class="relative flex flex-col min-h-screen px-6 gap-18 justify-evenly"
+    class="relative flex flex-col min-h-screen px-6 gap-10 justify-evenly"
   >
     <!-- Background bubbles -->
     <div>
@@ -25,9 +25,9 @@ useHead({
     </div>
 
     <!-- Content -->
-    <div class="relative z-1 flex justify-between flex-col gap-8">
+    <div class="relative z-1 flex justify-between flex-col gap-10">
       <!-- Title -->
-      <div class="mb-8">
+      <div>
         <h1 class="text-5xl font-bold overflow-hidden">Create Account</h1>
       </div>
 
