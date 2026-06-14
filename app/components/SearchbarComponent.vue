@@ -9,13 +9,13 @@ const modelValue = defineModel<string[]>({
 <template>
   <TagsInput
     v-model="modelValue"
-    class="w-70 h-10 bg-gray-100 rounded-full border-none px-4 flex-nowrap overflow-x-auto"
+    class="w-full h-9 bg-gray-100 rounded-full border-none px-3 flex-nowrap overflow-x-auto placeholder:text-placeholder"
   >
     <TagsInputItem
       v-for="item in modelValue"
       :key="item"
       :value="item"
-      class="bg-white rounded-full px-2 text-sm shrink-0"
+      class="bg-input rounded-full px-2 text-sm shrink-0"
     >
       <TagsInputItemText />
       <TagsInputItemDelete />

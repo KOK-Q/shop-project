@@ -35,10 +35,10 @@ function setApi(carouselApi: EmblaCarouselType | undefined) {
 </script>
 
 <template>
-  <div class="grid gap-6 p-4 pb-12">
+  <div class="grid gap-3 px-4 mt-12">
     <!-- header and search bar -->
-    <div class="flex justify-between items-baseline gap-2">
-      <h1 class="text-2xl font-bold">Shop</h1>
+    <div class="flex items-center gap-4">
+      <h1 class="text-[28px] font-bold">Shop</h1>
 
       <SearchbarComponent v-model="selectedCategories" />
     </div>
@@ -47,22 +47,22 @@ function setApi(carouselApi: EmblaCarouselType | undefined) {
     <Carousel @init-api="setApi">
       <CarouselContent>
         <CarouselItem>
-          <div class="p-1 h-48">
+          <div class="h-34">
             <img src="/images/BigSaleBanner.png" class="w-full h-full" />
           </div>
         </CarouselItem>
         <CarouselItem>
-          <div class="p-1 h-48">
+          <div class="h-34">
             <img src="/images/BigSaleBanner1.png" class="w-full h-full" />
           </div>
         </CarouselItem>
         <CarouselItem>
-          <div class="p-1 h-48">
+          <div class="h-34">
             <img src="/images/BigSaleBanner.png" class="w-full h-full" />
           </div>
         </CarouselItem>
         <CarouselItem>
-          <div class="p-1 h-48">
+          <div class="h-34">
             <img src="/images/BigSaleBanner1.png" class="w-full h-full" />
           </div>
         </CarouselItem>
