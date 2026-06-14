@@ -7,7 +7,7 @@ const productStore = useProductStore();
     <Card
       v-for="(items, category) in productStore.groupedCategories"
       :key="category"
-      class="px-2 border border-t-0 shadow-lg"
+      class="px-1.5 border border-t-0 shadow-lg"
     >
       <CardContent class="grid grid-cols-2 gap-1 p-0">
         <div
@@ -18,7 +18,7 @@ const productStore = useProductStore();
           <img
             :src="item.image"
             :alt="item.title"
-            class="w-full h-full object-contain p-2"
+            class="w-full h-full object-contain p-1"
           />
         </div>
       </CardContent>

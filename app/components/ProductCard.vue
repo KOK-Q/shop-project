@@ -17,7 +17,7 @@ function changePage(id: number) {
 </script>
 
 <template>
-  <div class="grid gap-2" @click="changePage(product.id)">
+  <div class="grid gap-1" @click="changePage(product.id)">
     <Card class="rounded-md h-44 shadow-xl">
       <CardContent class="h-42">
         <img
@@ -27,7 +27,7 @@ function changePage(id: number) {
         />
       </CardContent>
     </Card>
-    <p class="text-sm items-start h-10 line-clamp-2">{{ product.title }}</p>
+    <p class="text-[12px] items-start h-8 line-clamp-2">{{ product.title }}</p>
     <p class="font-bold text-lg">${{ product.price }}</p>
     
   </div>
