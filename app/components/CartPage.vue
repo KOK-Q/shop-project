@@ -9,37 +9,44 @@ function changePage(id: number) {
 </script>
 
 <template>
-  <div class="p-4 space-y-6 mb-26">
+  <div class="px-5 py-12 flex flex-col gap-4 mb-26">
     <!-- title -->
     <div class="flex items-center gap-3">
       <h1 class="text-3xl font-bold">Cart</h1>
-      <div class="size-9 rounded-full bg-indigo-100 grid place-items-center">
+      <div
+        class="size-7 rounded-full bg-indigo-100 grid place-items-center font-bold"
+      >
         {{ cartStore.cart.length }}
       </div>
     </div>
 
     <!-- address -->
-    <div class="bg-gray-100 rounded-2xl p-4 flex justify-between items-center">
+    <div
+      class="bg-gray rounded-2xl py-2 px-3 flex justify-between items-center"
+    >
       <div>
-        <h2 class="font-bold text-lg">Shipping Address</h2>
-        <p class="text-sm text-gray-500 max-w-xs">
-          26, Duong So 2, Thao Dien Ward, An Phu, District 2
+        <h2 class="font-bold text-sm">Shipping Address</h2>
+        <p class="text-[11px] w-65">
+          26, Duong So 2, Thao Dien Ward, An Phu, District 2, Ho Chi Minh city
         </p>
       </div>
 
       <button
-        class="bg-blue-600 w-9 h-8 rounded-full flex justify-center items-center"
+        class="bg-blue-600 w-7.5 h-7.5 rounded-full flex justify-center items-center"
       >
-        <Pencil class="text-white size-4 fill-white" />
+        <Pencil class="text-white size-3 fill-white" />
       </button>
     </div>
 
     <!-- products -->
     <ul class="flex flex-col gap-y-6">
-      <li v-for="c in cartStore.cart" :key="c.id" class="flex gap-4" @click="changePage(c.id)">
+      <li v-for="c in cartStore.cart" :key="c.id" class="flex gap-4">
         <!-- image -->
-        <div class="relative p-1 border rounded-xl shadow-xl">
-          <img :src="c.image" class="w-24 h-26 rounded-xl bg-gray-100" />
+        <div
+          class="relative p-1 border rounded-xl shadow-xl"
+          @click="changePage(c.id)"
+        >
+          <img :src="c.image" class="w-32 h-27 rounded-xl bg-gray-100" />
           <Button
             class="absolute bottom-2 left-2 bg-white size-10 rounded-full shadow grid place-items-center"
             @click="cartStore.remove(c.id)"
@@ -51,12 +58,12 @@ function changePage(id: number) {
         <!-- info -->
         <div class="flex-1 flex flex-col justify-between">
           <div>
-            <h3>
+            <h3 class="text-[12px]">
               {{ c.title }}
             </h3>
           </div>
           <div class="flex items-center justify-between">
-            <h2 class="text-2xl font-bold">${{ c.price }}</h2>
+            <h2 class="text-lg font-bold">${{ c.price }}</h2>
 
             <div class="flex items-center gap-1">
               <button
@@ -84,8 +91,13 @@ function changePage(id: number) {
       </li>
     </ul>
   </div>
-  <div class="bg-gray-100 flex justify-between p-4 mb-10 fixed bottom-0 w-full">
-    <h1 class="font-bold text-xl">Total ${{ cartStore.totalPrice }}</h1>
-    <Button class="bg-blue-600 p-4 overflow-hidden">Checkout</Button>
+  <div class="bg-gray-100 flex justify-between p-2 mb-10 fixed bottom-0 w-full">
+    <div class="flex gap-2">
+      <p class="font-bold text-xl">Total</p>
+      <h1 class="font-bold text-md">${{ cartStore.totalPrice.toFixed(3) }}</h1>
+    </div>
+    <Button class="bg-blue-600 px-8 py-5 overflow-hidden rounded-lg"
+      >Checkout</Button
+    >
   </div>
 </template>
