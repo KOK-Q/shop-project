@@ -67,15 +67,14 @@ function changePage(id: number) {
 
     <!-- products -->
     <ul class="flex flex-col gap-y-6">
-      <li
-        v-for="w in wishStore.wish"
-        :key="w.id"
-        class="flex gap-4"
-        @click="changePage(w.id)"
-      >
+      <li v-for="w in wishStore.wish" :key="w.id" class="flex gap-4">
         <!-- image -->
         <div class="relative p-1 border rounded-xl shadow-xl">
-          <img :src="w.image" class="w-24 h-26 rounded-xl bg-gray-100" />
+          <img
+            :src="w.image"
+            class="w-24 h-26 rounded-xl bg-gray-100"
+            @click="changePage(w.id)"
+          />
           <Button
             class="absolute bottom-2 left-2 bg-white size-10 rounded-full shadow grid place-items-center"
             @click="wishStore.remove(w.id)"
@@ -96,13 +95,10 @@ function changePage(id: number) {
 
             <div class="flex items-center gap-1">
               <Button
-                class="size-8 grid place-items-center bg-white"
-                @click="wishStore.add(w)"
+                class="size-8 grid place-items-center bg-white hover:bg-white"
+                @click="cartStore.add(w)"
               >
-                <PackagePlus
-                  class="text-blue-600 size-7"
-                  @click="cartStore.add(w)"
-                />
+                <PackagePlus class="text-blue-600 size-7" />
               </Button>
             </div>
           </div>
