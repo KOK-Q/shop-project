@@ -72,7 +72,7 @@ function changePage(id: number) {
         <div class="relative p-1 border rounded-xl shadow-xl">
           <img
             :src="w.image"
-            class="w-24 h-26 rounded-xl bg-gray-100"
+            class="w-32 h-27 rounded-xl bg-gray-100"
             @click="changePage(w.id)"
           />
           <Button
@@ -86,12 +86,12 @@ function changePage(id: number) {
         <!-- info -->
         <div class="flex-1 flex flex-col justify-between">
           <div>
-            <h3>
+            <h3 class="text-sm">
               {{ w.title }}
             </h3>
           </div>
-          <div class="flex items-center justify-between">
-            <h2 class="text-2xl font-bold">${{ w.price }}</h2>
+          <div class="flex justify-between items-baseline">
+            <h2 class="text-xl font-bold">${{ w.price }}</h2>
 
             <div class="flex items-center gap-1">
               <Button
